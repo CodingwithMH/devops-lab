@@ -33,15 +33,11 @@ clean: ## remove the output directory
 
 ci: clean check test ## full pipeline for a build server
 
-help: ## list available targets
-	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/'
-
-$(OUT_DIR)/report.txt: $(OUTPUTS) | $(OUT_DIR)
-	@echo "Report generated: $$(date)" > $@
-	@wc -l $(OUTPUTS) >> $@
-
 report: $(OUT_DIR)/report.txt ## write a summary of all outputs
 
 count: build ## report source files and built words
 	@ls -1 $(SRC_DIR)/*.txt | wc -l
 	@wc -w $(OUTPUTS) | tail -1
+# count: see section 5 of the README
+# OUTPUTS is set by the wildcard above
+# run 'make help' for all targets
