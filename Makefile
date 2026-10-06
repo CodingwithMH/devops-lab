@@ -42,5 +42,6 @@ $(OUT_DIR)/report.txt: $(OUTPUTS) | $(OUT_DIR)
 
 report: $(OUT_DIR)/report.txt ## write a summary of all outputs
 
-count: build ## count the source files
+count: build ## report source files and built words
 	@ls -1 $(SRC_DIR)/*.txt | wc -l
+	@wc -w $(OUTPUTS) | tail -1
