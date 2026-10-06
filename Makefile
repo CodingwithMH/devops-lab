@@ -41,3 +41,6 @@ $(OUT_DIR)/report.txt: $(OUTPUTS) | $(OUT_DIR)
 	@wc -l $(OUTPUTS) >> $@
 
 report: $(OUT_DIR)/report.txt ## write a summary of all outputs
+
+count: build ## report how many words were built
+	@wc -w $(OUTPUTS) | tail -1
