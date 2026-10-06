@@ -1,0 +1,2 @@
+hello devops
+this is the first sample input
